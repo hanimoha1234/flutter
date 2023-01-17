@@ -1,0 +1,89 @@
+Un-normalized:
+{registrions,finance,attendence,exam}
+1NF:
+1. atomic value.
+2. no repeating group of related data.
+
+Atomic value:
+{student,employee,finance,attendence,exam}
+
+student{name,tell,sex,birth_date,Batch,class,...,address,responsible}
+
+student{name,tell,sex,birth_date,batch_name,year, faculty,depertment, class,...,district, village, area,res_name,res_tell}
+
+no repeating group of releated:
+0. Academic_year{year_name,started,ended}
+1. Batches{batch_name,...}
+2. address{district, village, area}
+3. responsible{res_name,res_tell}
+4. faculties{fac_name,}
+5. departments{dept_name,}
+6. class{class_name,...}
+7. student{name,tell,sex,birth_date,.., ..,...,..,..}
+
+2NF:
+1. 1NF
+2. Entity integrity & referential integrity
+
+1. Academic_year{y_no(pk),year_name,started,ended}
+2. Batches{bat_no(pk),batch_name,y_no(fk)}
+3. address{add_no(pk),district, village, area}
+4. responsible{re_no(pk),res_name,res_tell}
+5. faculties{fac_no(pk),fac_name,}
+6. departments{dep_no(pk),dept_name,fec_no(fk),price}
+7. class{cl_no(pk),class_name,dep_no(fk),bat_no(fk)}
+8. student{id(pk),name,tell,sex,birth_date,add_no(fk), res_no(fk),...,..,..}
+
+3NF:
+1. 2NF
+1. no changible column:
+Boyee code normal
+9. semister{sm(pk),sm_name}
+10. student_class{sc_no(pk),cl_no(fk),id(fk),sm_no(fk),y_no(fk)}
+
+{employee,finance,attendence,exam,academics}
+11. jobs{jb_no(pk),title,salary}
+12. decress{dec_no(pk),decree_name}
+13. employee{emp_name,tell,sex,job_no(fk),dec_no(fk),pass......,add_no(fk)}
+14. days{dy_no(pk),dy_name,....}
+15. schedule{sch_no(pk),emp_no(fk),dy_no(fk),time_in,time_out}
+
+16. courses{cor_no(pk),course_name}
+17. department_course{dc_no(pk),cor_no(fk),dep_no(fk),sm_no(fk)}
+
+finance{reciept,charges,payment}
+18. amount_types{am_no(pk),type_name}
+19. charges{ch_no(pk),sc_no(fk),am_no(fk),amount,ch_dates}
+20. Accounts{acc_no(pk),acc_name,instituion,balance}
+21. receipts{r_no(pk),id(fk),amount,r_date,acc_no(fk)}
+22. expenses{exp_no(pk),exp_name,description}
+23. exp_charge{exp_ch_no(pk),exp_no(fk),amount,description}
+24. exp_payment{exp_py_no(pk),exp_no(fk),amount,acc_no(fk),py_date,description}
+25. salary_charge{s_ch_no(pk),emp_no(fk),amount,sal_date,description}
+26. salay_payment{sal_py_no(pk),emp_no(fk),amount,py_date,acc_no(fk)}
+
+27. exams{exm_no(pk),ex_name}
+28. exam_reg{exm_r_no(pk),exm_no(fk),started,finished,y_no(fk)}
+29. results{rs_no(pk),cor_no(fk),id(fk),exm_r_no(fk),marks}
+
+30. periods{per_no(pk),per_name,time_in,time_out}
+31. status{st_no(pk),st_name}
+32. Attendence{Att_no(pk),day_no(fk),per_no(fk),st_no(fk),description,cl_no(fk),id(fk),cor_no(fk),y_no(fk)}
+33. employee_attendece{emp_att_no(pk),emp_no(fk),time_in,time_out}
+34. users{....}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
